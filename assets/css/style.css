@@ -163,6 +163,11 @@ html {
 
 body {
   background: var(--smoky-black);
+  position: absolute;
+  width: 100%;
+  background-image: url('../images/giphy.gif');
+  background-size: cover;
+  animation: backgroundAnimation 10s linear infinite;
 }
 
 
