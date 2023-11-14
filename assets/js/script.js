@@ -143,8 +143,11 @@ const pages = document.querySelectorAll("[data-page]");
 // add event to all nav link
 for (let i = 0; i < navigationLinks.length; i++) {
   navigationLinks[i].addEventListener("click", function () {
-
+    console.log(navigationLinks,pages)
     for (let i = 0; i < pages.length; i++) {
+      console.log(this.innerHTML.toLowerCase(),pages[i].dataset.page)
+      console.log(this.innerHTML.toLowerCase() == pages[i].dataset.page)
+
       if (this.innerHTML.toLowerCase() === pages[i].dataset.page) {
         pages[i].classList.add("active");
         navigationLinks[i].classList.add("active");
