@@ -1,0 +1,7 @@
+# Static-export deploy for Next.js — Netlify serves the prebuilt `out/` folder.
+[build]
+  command = "npm run build"
+  publish = "out"
+
+[build.environment]
+  NODE_VERSION = "20"

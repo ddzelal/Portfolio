@@ -6,6 +6,7 @@ import { GlitchText } from "./anim/GlitchText";
 import { TypeWriter } from "./anim/TypeWriter";
 import { Counter } from "./anim/Counter";
 import { Magnetic } from "./anim/Magnetic";
+import { Character } from "./Character";
 import { ArrowDownIcon, GithubIcon, LinkedinIcon, MailIcon } from "./Icons";
 
 const promptLines = [
@@ -180,22 +181,30 @@ export function Hero() {
           </motion.div>
         </div>
 
-        {/* Scroll cue */}
-        <motion.a
-          href="#about"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.6 }}
-          className="mt-16 hidden items-center gap-2 font-mono text-xs text-faint transition-colors hover:text-neon lg:flex"
-        >
-          <motion.span
-            animate={{ y: [0, 5, 0] }}
-            transition={{ duration: 1.6, repeat: Infinity }}
+        {/* Mascot greeter + scroll cue */}
+        <div className="mt-10 hidden items-end gap-3 lg:flex">
+          <Character waveOnMount className="h-36 w-32 shrink-0" />
+          <motion.div
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1.2, duration: 0.4 }}
+            className="relative mb-6 border border-line bg-surface/95 px-3.5 py-2.5 font-mono text-xs text-fg shadow-[0_0_24px_-8px_rgba(0,255,135,0.5)] backdrop-blur"
           >
-            <ArrowDownIcon width={16} height={16} />
-          </motion.span>
-          scroll
-        </motion.a>
+            <span className="text-neon">{">"}</span> hey — I&apos;m Dzelal.{" "}
+            <a href="#about" className="text-neon underline-offset-2 hover:underline">
+              scroll to explore
+            </a>
+            <motion.span
+              className="ml-1 inline-block align-middle text-neon"
+              animate={{ y: [0, 4, 0] }}
+              transition={{ duration: 1.6, repeat: Infinity }}
+            >
+              <ArrowDownIcon width={14} height={14} />
+            </motion.span>
+            {/* tail pointing to character */}
+            <span className="absolute -left-1.5 bottom-3 h-3 w-3 rotate-45 border-b border-l border-line bg-surface/95" />
+          </motion.div>
+        </div>
       </div>
     </section>
   );
